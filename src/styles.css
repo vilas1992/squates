@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #f1efef; 
+ }
+ /* removing horizontal scroll added due to bootstrap .row*/
+ .row {    
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+ .whiteColor{
+     color: #ffffff;
+ }
+ .whiteBg{
+     background: #ffffff;
+ }
+ .lightWhiteColor{
+    color: #b5b1b1;
+}
+.skyLight{
+    background:#00BFFF;
+}
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

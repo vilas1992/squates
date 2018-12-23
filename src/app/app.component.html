@@ -1,20 +1,130 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="row profileBg">
+  <div class="col-md-4 pt-4">
+      <div class="ml-3">
+          <mat-icon class="whiteColor"> format_align_justify</mat-icon>
+      </div>
+    <div class="row">
+      
+      <div class="col-md-4 offset-md-2">
+        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" class="rounded-circle" alt="Cinque Terre" width="80" height="80">
+      </div> 
+      <div class="col-md-6 pt-3">
+        <h5 class="whiteColor">@Rco_Monteiro</h5>
+        <h3 class="whiteColor">Rco Monteiro</h3>
+      </div> 
+    </div>  
+    <div class="row mt-3">
+      <div class="col-md-3 offset-md-2">
+        <span class="lightWhiteColor">Comments</span>
+        <h4 class="whiteColor p-0">{{ commentsList.length }}</h4>
+      </div>
+      <div class="col-md-3">
+          <span class="lightWhiteColor">Photos</span>
+          <h4 class="whiteColor p-0">{{ photosList.length }}</h4>
+      </div>
+      <div class="col-md-3">
+          <span class="lightWhiteColor">Albums</span>
+          <h4 class="whiteColor p-0">{{ albumsList.length }}</h4>
+      </div>
+    </div> 
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="row containBg">
+  <div class="col-md-4 whiteBg">
+    <div class="userListContainer">
+        <div *ngFor = "let user of usersList;">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-subtitle>{{ user.title }}</mat-card-subtitle>
+              </mat-card-header>   
+            </mat-card>
+          </div>
+    </div>
+  <hr>
+    <div class="userListContainer">
+        <div *ngFor = "let task of tasksList;">
+            <mat-card class="example-card">
+              <mat-card-content>
+                <p>{{ task.title }}</p>
+              </mat-card-content>  
+            </mat-card>
+          </div>
+    </div>
+  </div>
+  <div class="col-md-7 margin-top">
+    <mat-tab-group>        
+      <mat-tab>
+         <ng-template mat-tab-label>
+            <mat-icon class="whiteColor">home</mat-icon>
+              <span class="whiteColor">Home</span>
+        </ng-template>        
+        <ng-template matTabContent>
+            <app-home [postsList]="postsList"></app-home>
+        </ng-template>
+      </mat-tab>
+      <mat-tab> 
+        <ng-template mat-tab-label>
+            <mat-icon class="whiteColor">voice_chat</mat-icon>            
+            <span class="whiteColor">Album</span>
+        </ng-template> 
+        <ng-template matTabContent>
+            <app-album [albumsList]="albumsList"></app-album>
+        </ng-template>
+      </mat-tab>
+      <mat-tab> 
+        <ng-template mat-tab-label>
+            <mat-icon class="whiteColor">insert_photo</mat-icon>
+            <span class="whiteColor">Photos</span>
+        </ng-template>
+        <ng-template matTabContent>
+            <app-photos [photosList]="photosList"></app-photos>
+        </ng-template>
+      </mat-tab>
+      <mat-tab> 
+        <ng-template mat-tab-label>
+            <mat-icon class="whiteColor">person</mat-icon>
+            <span class="whiteColor">Users</span>
+        </ng-template>
+        <ng-template matTabContent>
+            <app-user [usersList]="usersList"></app-user>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="col-md-1">
+    <div class="mt-5">
+    <button style="background: #00BFFF" mat-fab (click)="showDialog()">
+        <mat-icon>whatshot</mat-icon>
+    </button>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Add Posts" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="User Id" [(ngModel)]="post.userId">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="id" [(ngModel)]="post.id">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="title" [(ngModel)]="post.title">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="body" [(ngModel)]="post.body"></textarea>
+              </mat-form-field>
+          </form>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="savePost()" >Yes</button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" class="ui-button-secondary">No</button>
+        </p-footer>
+</p-dialog>
+
+
 
