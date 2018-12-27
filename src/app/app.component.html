@@ -1,7 +1,7 @@
 <div class="row profileBg">
   <div class="col-md-4 pt-4">
       <div class="ml-3">
-          <mat-icon class="whiteColor"> format_align_justify</mat-icon>
+          <mat-icon class="whiteColor" (click)="onClickMe()"> format_align_justify</mat-icon>
       </div>
     <div class="row">
       
@@ -16,21 +16,21 @@
     <div class="row mt-3">
       <div class="col-md-3 offset-md-2">
         <span class="lightWhiteColor">Comments</span>
-        <h4 class="whiteColor p-0">{{ commentsList.length }}</h4>
+        <h4 class="whiteColor p-0" *ngIf="commentsList.length > 0">{{ commentsList.length }}</h4>
       </div>
       <div class="col-md-3">
           <span class="lightWhiteColor">Photos</span>
-          <h4 class="whiteColor p-0">{{ photosList.length }}</h4>
+          <h4 class="whiteColor p-0" *ngIf="photosList.length > 0">{{ photosList.length }}</h4>
       </div>
       <div class="col-md-3">
           <span class="lightWhiteColor">Albums</span>
-          <h4 class="whiteColor p-0">{{ albumsList.length }}</h4>
+          <h4 class="whiteColor p-0" *ngIf="albumsList.length > 0">{{ albumsList.length }}</h4>
       </div>
     </div> 
   </div>
 </div>
 <div class="row containBg">
-  <div class="col-md-4 whiteBg">
+  <div class="col-md-4 whiteBg leftContainer" >
     <div class="userListContainer">
         <div *ngFor = "let user of usersList;">
             <mat-card class="example-card">

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, SimpleChange} from '@angular/core';
 
 @Component({
   selector: 'app-album',
@@ -11,6 +11,12 @@ export class AlbumComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    debugger;
+    const name: SimpleChange = changes.albumsList;
+    this.albumsList = name.currentValue;
   }
 
 }

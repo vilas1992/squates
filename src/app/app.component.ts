@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit() { 
+    debugger;
     this.socialservice.comments().subscribe(data =>      
         this.commentsList = data        
     );
@@ -53,7 +54,23 @@ export class AppComponent implements OnInit {
       title : '',
       body : ''
     };
+    
    }
+   onClickMe(){
+     debugger;
+     let albumsList = this.albumsList;
+    
+    this.albumsList = albumsList.map( function(e) {
+      return {
+          id: e.id + "added Name",
+          title: e.title,
+          userId: e.userId
+      }
+  });  
+  
+  console.log("album", this.albumsList);
+   
+  }
 
    showDialog() {
     this.display = true;
