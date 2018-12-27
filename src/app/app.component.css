@@ -12,14 +12,9 @@
 .margin-top{
     margin-top: -3.8%; 
     height: 120%;
-    overflow: scroll;
+    
 }
 .userListContainer{
     height: 50%;
     overflow: scroll;
-}
-
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
 }
