@@ -1,6 +1,7 @@
 <div *ngFor = "let post of postsList;">
   <mat-card class="example-card">
     <mat-card-header>
+      
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ post.userId }}</mat-card-title>
       <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
@@ -8,5 +9,6 @@
     <mat-card-content>
       <p>{{ post.body }}</p>
     </mat-card-content>    
+    
   </mat-card>
 </div>
