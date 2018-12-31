@@ -1,4 +1,4 @@
-.container1 {
+.loginContainer {
     position: relative;
     height: 100%;
     width: 100%;
@@ -6,7 +6,7 @@
     background-color: rgb(253, 252, 253);
   }
   
-  .container1:before { 
+  .loginContainer:before { 
     content: '';
     position: absolute;
     left: 30%;
@@ -19,3 +19,19 @@
     -moz-transform: rotate(20deg);
     transform: rotate(20deg);
   }
+
+  .login-card {
+    max-width: 300px;
+    position: absolute;
+    right: 10%;
+    top: 25%;
+  }
+  
+  .example-container {
+    padding: 10%;
+    text-align: center;
+  }
+  .example-container > * {
+    width: 100%;
+  }
+  

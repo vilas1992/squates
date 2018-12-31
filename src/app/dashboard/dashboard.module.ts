@@ -1,18 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-
-import { DialogModule } from 'primeng/dialog';
-import { FormsModule } from '@angular/forms';
-
-
 import { HomeComponent } from '../home/home.component'
 import { AlbumComponent } from '../album/album.component';
 import { PhotosComponent } from '../photos/photos.component';
@@ -24,16 +13,8 @@ const dashBoardRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
-
-    MatTabsModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    DialogModule,
-    FormsModule,
-    RouterModule.forChild(dashBoardRoutes)
+    RouterModule.forChild(dashBoardRoutes),
+    SharedModule
   ],
   declarations: [
     DashboardComponent,
