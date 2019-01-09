@@ -6,6 +6,9 @@ const appRoutes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'login'
   },
+  
+
+  
   {
     path: 'login', component: LoginComponent
   },
